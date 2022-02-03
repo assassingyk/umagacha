@@ -55,7 +55,7 @@ def save_group_banner():
 
 
 def group_init(gid):
-    group_banner[gid] = {"banner": "30016", "banner_s": "30061", "method": "simple"}
+    group_banner[gid] = {"banner": "30016", "banner_s": "30015", "method": "simple"}  ##初始默认寄寄子池）
 
 
 @sv.on_fullmatch(("查看马娘卡池"))
