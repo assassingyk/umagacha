@@ -51,5 +51,13 @@
 
 [更新马娘卡池] 从bilibiliwiki更新马娘卡池数据并更新卡池banner图像资源
 
-## todo
-- ？
+## 示例
+- 简略模式
+![CZK2(C`TP27RFD 0J 3S_LO](https://user-images.githubusercontent.com/55473115/152398222-4a7a7361-049c-4d27-88a8-dd837729c6b7.jpg)
+![BMM(0( PWT35)DCI 8)MW 6](https://user-images.githubusercontent.com/55473115/152398243-fcf3ce6d-a610-4378-86a0-a58f9743172f.jpg)
+
+- 仿真模式
+![C8~7YU_ Y%)9Y(LG)I4{C7U](https://user-images.githubusercontent.com/55473115/152398334-7fc508d2-c7e2-4ece-8779-f0850d020dc5.jpg)
+
+
+
