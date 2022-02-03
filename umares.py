@@ -1,5 +1,6 @@
-import json, time, os, copy
+import re, json, requests, time, os, copy
 from bs4 import BeautifulSoup
+from contextlib import closing
 from async_retrying import retry
 
 from hoshino import aiorequests
@@ -11,18 +12,16 @@ uma_url=r'https://wiki.biligame.com/umamusume/%E8%B5%9B%E9%A9%AC%E5%A8%98%E5%9B%
 support_url=r'https://wiki.biligame.com/umamusume/%E6%94%AF%E6%8F%B4%E5%8D%A1%E5%9B%BE%E9%89%B4'
 pool_url=r'https://wiki.biligame.com/umamusume/%E5%8D%A1%E6%B1%A0'
 
-#base_data = json.load(open(os.path.join(json_path,'db.json'), encoding="utf-8"))
-#cn_data= json.load(open(os.path.join(json_path,'cn.json'), encoding="utf-8"))
-#en_data=json.load(open(os.path.join(json_path,'us.json'), encoding="utf-8"))
-
 working_path = os.path.abspath(os.path.realpath(os.path.dirname(__file__)))
 
 img_path = os.path.join(RES_DIR, "img", "umagacha")
 #img_path = os.path.join(working_path, 'res')
-pool_banner_dir = os.path.join(img_path, 'pool')
-uma_dir = os.path.join(img_path, 'player')
-support_dir = os.path.join(img_path, 'support')
-
+banner_path = os.path.join(img_path, 'pool')
+player_path = os.path.join(img_path, 'player')
+support_path = os.path.join(img_path, 'support')
+for path in [banner_path,player_path,support_path]:
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 @retry(attempts=3)
 async def down_from_git(url, file):
@@ -84,11 +83,11 @@ async def down_player():
     for set in down:
         try:
             filename = set[1]
-            png_path = os.path.join(uma_dir, filename)
+            png_path = os.path.join(player_path, filename)
             if os.path.exists(png_path):
                 print('already there, pass')
                 continue
-            res=await down_pic_from_thumb(set[0], filename, uma_dir)
+            res=await down_pic_from_thumb(set[0], filename, player_path)
             counter+=res
         except Exception as e:
             print(f'error in down {set[1]}')
@@ -113,11 +112,11 @@ async def down_support():
     for set in down:
         try:
             filename = set[1]
-            png_path = os.path.join(support_dir, filename)
+            png_path = os.path.join(support_path, filename)
             if os.path.exists(png_path):
                 print('already there, pass')
                 continue
-            res=await down_pic_from_thumb(set[0], filename, support_dir)
+            res=await down_pic_from_thumb(set[0], filename, support_path)
             counter+=res
         except Exception as e:
             print(f'error in down {set[1]}')
@@ -159,7 +158,7 @@ async def down_pool():
         print(f'pool {index.a["title"]} has {len(up)} up.')
         tempinfo['up']=up
         playerpool[poolid]=copy.deepcopy(tempinfo)
-        res=await down_pic_from_thumb(banner, banner.split('-')[-1], pool_banner_dir)
+        res=await down_pic_from_thumb(banner, banner.split('-')[-1], banner_path)
         counter+=res
         
     for index in soup.find_all('td', text='支援卡卡池'):
@@ -189,7 +188,7 @@ async def down_pool():
         print(f'pool {index.a["title"]} has {len(up)} up.')
         tempinfo['up']=up
         supportpool[index.a['title']]=copy.deepcopy(tempinfo)
-        res=await down_pic_from_thumb(banner, banner.split('-')[-1], pool_banner_dir)
+        res=await down_pic_from_thumb(banner, banner.split('-')[-1], banner_path)
         counter+=res
 
     pooldata={'playerpool':playerpool, 'supportpool':supportpool}

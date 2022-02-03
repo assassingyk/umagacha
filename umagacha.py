@@ -17,6 +17,9 @@ img_path = os.path.join(RES_DIR, "img", "umagacha")
 banner_path = os.path.join(img_path, 'pool')
 player_path = os.path.join(img_path, 'player')
 support_path = os.path.join(img_path, 'support')
+for path in [banner_path,player_path,support_path]:
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 player_pool = {3: [], 2: [], 1: []}
 player_data = {}
