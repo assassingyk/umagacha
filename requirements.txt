@@ -1,0 +1,4 @@
+nonebot
+async_retrying
+beautifulsoup4
+Pillow
