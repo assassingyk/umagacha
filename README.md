@@ -42,6 +42,7 @@
 
 [切换马娘抽卡模式] 切换十连结果图片的简略/仿真模式，默认简略模式
 
+=====
 
 #### 维护指令：
 
@@ -54,8 +55,8 @@
 ## 示例
 
 - 简略模式
-- 
-<img src="https://user-images.githubusercontent.com/55473115/152398222-4a7a7361-049c-4d27-88a8-dd837729c6b7.jpg" width = "500" alt=""><img src="https://user-images.githubusercontent.com/55473115/152398243-fcf3ce6d-a610-4378-86a0-a58f9743172f.jpg" width = "500" alt="">
+
+<img src="https://user-images.githubusercontent.com/55473115/152398222-4a7a7361-049c-4d27-88a8-dd837729c6b7.jpg" width = "500" alt=""  align=top /><img src="https://user-images.githubusercontent.com/55473115/152398243-fcf3ce6d-a610-4378-86a0-a58f9743172f.jpg" width = "500" alt="" align=top />
 
 - 仿真模式
 
