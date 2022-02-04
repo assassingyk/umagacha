@@ -54,13 +54,14 @@
 
 ## 示例
 
-- 简略模式
-
-<img src="https://user-images.githubusercontent.com/55473115/152398222-4a7a7361-049c-4d27-88a8-dd837729c6b7.jpg" width = "500" alt=""  align=top /><img src="https://user-images.githubusercontent.com/55473115/152398243-fcf3ce6d-a610-4378-86a0-a58f9743172f.jpg" width = "500" alt="" align=top />
-
 - 仿真模式
 
-<img src="https://user-images.githubusercontent.com/55473115/152398334-7fc508d2-c7e2-4ece-8779-f0850d020dc5.jpg" width = "500" alt="">
+<img src="https://user-images.githubusercontent.com/55473115/152398334-7fc508d2-c7e2-4ece-8779-f0850d020dc5.jpg" width = "400" alt="">
+
+- 简略模式
+
+<img src="https://user-images.githubusercontent.com/55473115/152398222-4a7a7361-049c-4d27-88a8-dd837729c6b7.jpg" width = "400" alt=""  align=top /><img src="https://user-images.githubusercontent.com/55473115/152398243-fcf3ce6d-a610-4378-86a0-a58f9743172f.jpg" width = "400" alt="" align=top />
+
 
 
 
