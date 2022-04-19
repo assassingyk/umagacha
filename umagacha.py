@@ -28,6 +28,7 @@ support_data = {}
 gacha_data = {}
 cn_data = {}
 
+rare_match={'SSR':3, 'SR':2, 'R':1}
 
 def data_init():
     global player_pool, support_pool, gacha_data, player_data, support_data, cn_data
@@ -38,7 +39,13 @@ def data_init():
         player_pool[player["default_rarity"]].append(str(player["db_id"]))
         player_data[str(player["db_id"])] = player
     for support in char_data['supports']:
-        support_pool[support["rarity"]].append(str(support["db_id"]))
+        #support_pool[support["rarity"]].append(str(support["db_id"]))
+        try:
+            rare=support["rare"]
+            support_pool[rare_match[rare]].append(str(support["db_id"]))
+        except:
+            print(support)
+            continue
         support_data[str(support["db_id"])] = support
 
     gacha_data = json.load(
@@ -84,7 +91,9 @@ def get_support_pic(sid):
 
 
 def get_support_pic_r(sid):
-    rarity=support_data[str(sid)]['rarity']
+    #rarity=support_data[str(sid)]['rarity']
+    rare=support_data[str(sid)]["rare"]
+    rarity=rare_match[rare]
     masker=Image.open(os.path.join(img_path, f'support_r_{rarity}.png')).resize((45, 45))
     r, g, b, a = masker.split()
     picname = f"Support_thumb_{sid}.png"
